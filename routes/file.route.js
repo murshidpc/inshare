@@ -22,7 +22,6 @@ let upload = multer({
 router.post('/', (req, res) => {
     //store file
     upload( req, res, async (err) => {
-        console.log(req.file);
         //validate
         if(!req.file){
             res.json({error : 'all fields required'})
@@ -40,7 +39,7 @@ router.post('/', (req, res) => {
         })
         const response =  await file.save();
 
-        return res.json({file : `${process.env.APP_BASE_URL}/files/${response.uuid}`});
+        res.json({file : `${process.env.APP_BASE_URL}/files/${response.uuid}`});
     } )
 })
 
