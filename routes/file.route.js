@@ -22,6 +22,7 @@ let upload = multer({
 router.post('/', (req, res) => {
     //store file
     upload( req, res, async (err) => {
+        console.log(req.file);
         //validate
         if(!req.file){
             res.json({error : 'all fields required'})
@@ -77,6 +78,8 @@ router.post('/send', async (req, res) => {
         expires: '24 hr'
     })
   })
+
+  return res.send({success : true})
 
 })
 

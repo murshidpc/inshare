@@ -10,6 +10,8 @@ const PORT = process.env.PORT || 3500 ;
 //cors
 app.use(cors()) 
 
+app.use(express.json());
+
 // template
 app.set('views', path.join(__dirname,'/views'));
 app.set('view engine', 'ejs');
