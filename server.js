@@ -1,10 +1,14 @@
 const express = require('express');
 require('dotenv').config();
 const path = require('path');
+const cors = require('cors');
 
 const app = express();
 
 const PORT = process.env.PORT || 3500 ;
+
+//cors
+app.use(cors()) 
 
 // template
 app.set('views', path.join(__dirname,'/views'));
